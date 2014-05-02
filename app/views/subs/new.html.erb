@@ -1,0 +1,25 @@
+<h1>Create new sub</h1>
+
+<form action="<%= subs_url %>" method="post">
+  <%= form_auth_token %>
+  <label>Name
+    <input type="text" name="sub[name]" value="<%= @sub.name %>">
+  </label><br><br>
+
+  <% @sub.links.each_with_index do |link, i| %>
+    <label>Title
+      <input type="text" name="link[<%= i %>][title]" value="<%= link.title %>">
+    </label><br>
+
+    <label>URL
+      <input type="text" name="link[<%= i %>][url]" value="<%= link.url %>">
+    </label><br>
+
+    <label>Text
+      <textarea name="link[<%= i %>][text]"><%= link.text %></textarea>
+    </label><br><br>
+  <% end %>
+
+  <input type="submit" value="Create New Sub">
+
+</form>

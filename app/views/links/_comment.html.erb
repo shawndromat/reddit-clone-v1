@@ -1,0 +1,12 @@
+<h4>By <%= comment.author.username %></h4>
+<p><%= comment.body %></p>
+
+<%= render 'comments/form', parent_comment: comment, nested: true %>
+
+<ul>
+<% comment_hash[comment.id].each do |child_comment| %>
+  <li>
+    <%= render 'comment', comment: child_comment, comment_hash: comment_hash %>
+  </li>
+<% end %>
+</ul>

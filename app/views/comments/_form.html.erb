@@ -1,0 +1,13 @@
+<% if nested %>
+  <% action_url = link_comment_comments_url(parent_comment.link, parent_comment) %>
+<% else %>
+  <% action_url = link_comments_url(comment.link_id) %>
+<% end %>
+
+<form action="<%= action_url %>" method="post">
+  <%= form_auth_token %>
+  <label>Comment:
+    <textarea name="comment[body]"></textarea>
+  </label>
+  <input type="submit" value="Submit Comment">
+</form>

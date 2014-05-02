@@ -1,0 +1,10 @@
+<% if current_user.id == @sub.moderator_id %>
+  <%= link_to 'Edit Sub', edit_sub_url(@sub) %>
+<% end %>
+
+<h1><%= @sub.name %></h1>
+<h3>Moderator: <%= @sub.moderator.username %></h3>
+
+<% @links.each do |link| %>
+<p><%= link.vote_count%> <%= link_to link.title, link_url(link) %></p>
+<% end %>
